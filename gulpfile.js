@@ -12,7 +12,6 @@ var browserSync     = require('browser-sync');
 var postcss         = require('gulp-postcss');
 var sass = require('gulp-sass');
 var autoprefixer    = require('autoprefixer');
-var inline_comment  = require('postcss-inline-comment');
 var lost            = require('lost');
 
 /** utils **/
@@ -139,8 +138,7 @@ gulp.task('make:pages', function() {
 gulp.task('make:css', function() {
 	var plugins = [
 		autoprefixer({ browsers: ['last 2 versions'] }),
-		lost,
-		inline_comment()
+		lost
 	]
 	return gulp.src(src.css + '*.scss')
 		.pipe(plumber({
